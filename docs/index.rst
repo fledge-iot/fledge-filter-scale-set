@@ -4,7 +4,7 @@
 .. Links
 .. |scale| raw:: html
 
-   < a href="../fledge-filter-scale/index.html">fledge-filter-scale</a>
+   <a href="../fledge-filter-scale/index.html">fledge-filter-scale</a>
 
 Scale Set Filter
 ================
