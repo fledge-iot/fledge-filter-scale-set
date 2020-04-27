@@ -69,7 +69,7 @@ In the following example we have an asset whose name is *environment* which cont
     ]
   }
 
-If instead we had multiple assets that contain *temperature* and *humidity* we can accomplish the same transformation on all these assets, whilst not affecting any other assets, by changing the *asset* regular expression to soemthing that matches more asset names;
+If instead we had multiple assets that contain *temperature* and *humidity* we can accomplish the same transformation on all these assets, whilst not affecting any other assets, by changing the *asset* regular expression to something that matches more asset names;
 
 
 .. code-block:: JSON
