@@ -166,7 +166,7 @@ void ScaleSetFilter::ScaleSet::apply(const Reading *reading) const
 
 			/*
 			 * Deal with the T_INTEGER and T_FLOAT types.
-			 * Try to preserve the typoe if possible but
+			 * Try to preserve the type if possible but
 			 * of a flaoting point scale or offset is applied
 			 * then T_INTEGER values will turn into T_FLOAT.
 			 */
@@ -179,7 +179,9 @@ void ScaleSetFilter::ScaleSet::apply(const Reading *reading) const
 				}
 				else
 				{
-					value.setValue((long)newValue);
+					// Constrain to 5 decimal places
+					newValue = floor(newValue * 10000) / 10000;
+					value.setValue(newValue);
 				}
 			}
 			else if (value.getType() == DatapointValue::T_FLOAT)
