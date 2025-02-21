@@ -20,24 +20,62 @@
 #include <version.h>
 
 #define FILTER_NAME "scale-set"
-#define DEFAULT_CONFIG "{\"plugin\" : { \"description\" : \"Scale filter plugin, apply a set of per asset and datapoint scale factors and offsets\", " \
-                       		"\"type\" : \"string\", " \
-				"\"default\" : \"" FILTER_NAME "\", \"readonly\":\"true\" }, " \
-			 "\"enable\": {\"description\": \"A switch that can be used to enable or disable execution of " \
-					 "the scale filter.\", " \
-				"\"type\": \"boolean\", " \
-				"\"displayName\" : \"Enabled\", " \
-				"\"default\": \"false\" }, " \
-			"\"factors\" : {\"description\" : \"Scale factor and offset configuration.\", " \
-				"\"type\": \"JSON\", " \
-				"\"default\": \"{ \\\"factors\\\" : [" \
-							"{ \\\"asset\\\" : \\\".*\\\", " \
-							"  \\\"datapoint\\\" : \\\".*\\\", " \
-							"  \\\"scale\\\" : 1.0, " \
-							"  \\\"offset\\\" : 0.0 " \
-							" }" \
-						"] }" \
-			"\", \"order\": \"1\", \"displayName\":\"Scale factors\"} }"
+
+#define DEFAULT_FACTORS	QUOTE({ \
+		"factors" : [ \
+		    { \
+			"asset" : ".*", \
+			"datapoint" : ".*",  \
+			"scale" : 1.0, \
+			"offset" : 0.0  \
+		    } \
+		] })
+
+#define DEFAULT_CONFIG QUOTE({ \
+		"plugin" : { \
+			"description" : "Scale filter plugin, apply a set of per asset and datapoint scale factors and offsets", \
+			"type" : "string", \
+			"default" : FILTER_NAME, \
+			"readonly":"true" \
+		}, \
+		"enable": { \
+			"description": "A switch that can be used to enable or disable execution of the scale filter.", \
+			"type": "boolean", \
+			"displayName" : "Enabled", \
+			"default": "false" \
+		}, \
+		"factors" : { \
+			"description" : "Scale factor and offset configuration.", \
+			"type": "list", \
+			"items" : "object", \
+			"listName" : "factors", \
+			"properties" : { \
+				"asset" : { \
+					"description" : "Asset name to match", \
+					"type" : "string", \
+					"default" : ".*" \
+				}, \
+				"datapoint" : { \
+					"description" : "Datapoint name to match", \
+					"type" : "string", \
+					"default" : ".*" \
+				}, \
+				"scale" : { \
+					"description" : "Scale factor to apply", \
+					"type" : "float", \
+					"default" : "1.0" \
+				}, \
+				"offset" : { \
+					"description" : "Offset to apply", \
+					"type" : "float", \
+					"default" : "0" \
+				} \
+			}, \
+			"default": DEFAULT_FACTORS, \
+			"order": "1",  \
+			"displayName" : "Scale factors" \
+		} \
+	})
 
 using namespace std;
 
