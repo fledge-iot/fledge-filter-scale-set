@@ -42,7 +42,8 @@
 			"description": "A switch that can be used to enable or disable execution of the scale filter.", \
 			"type": "boolean", \
 			"displayName" : "Enabled", \
-			"default": "false" \
+			"default": "false", \
+			"order" : "2" \
 		}, \
 		"factors" : { \
 			"description" : "Scale factor and offset configuration.", \
@@ -53,22 +54,26 @@
 				"asset" : { \
 					"description" : "Asset name to match", \
 					"type" : "string", \
-					"default" : ".*" \
+					"default" : ".*", \
+					"order" : "1" \
 				}, \
 				"datapoint" : { \
 					"description" : "Datapoint name to match", \
 					"type" : "string", \
-					"default" : ".*" \
+					"default" : ".*", \
+					"order" : "2" \
 				}, \
 				"scale" : { \
 					"description" : "Scale factor to apply", \
 					"type" : "float", \
-					"default" : "1.0" \
+					"default" : "1.0", \
+					"order" : "3" \
 				}, \
 				"offset" : { \
 					"description" : "Offset to apply", \
 					"type" : "float", \
-					"default" : "0" \
+					"default" : "0", \
+					"order" : "4" \
 				} \
 			}, \
 			"default": DEFAULT_FACTORS, \
