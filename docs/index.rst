@@ -39,9 +39,9 @@ Scale set filters are added in the same way as any other filters.
 
   - This allows the entry of a set of asset names, datapoint names, scale factors and offsets.
 
-  - list that defines a set of factors and offsets to apply particular assets and datapoints within these assets. A regular expression that is matched against the asset name and another that matches the data point name within the asset to determine if a particular scale factor and offset is applied to the datapoint value.
+  - A list that defines a set of factors and offsets to apply particular assets and datapoints within these assets. A regular expression that is matched against the asset name and another that matches the data point name within the asset to determine if a particular scale factor and offset is applied to the datapoint value.
 
-.. list-table::
+    .. list-table::
    :header-rows: 1
 
    * - Name
@@ -74,7 +74,7 @@ There are a number of ways you can interact with the list of scale factors. A pa
 | |scaleset_3| |
 +--------------+
 
-In this more detailed view individual items may be collapsed or expanded. Entries may also be deleted from the list by clicking on the icon to the right of the entry.
+In this more detailed view individual items may be collapsed or expanded. Entries may also be deleted from the list by clicking on the cross icon to the right of the entry.
 
 In both views there are a set of controls that allow entries to be added to the list, imported and exported.
 
@@ -130,11 +130,11 @@ In the following example we have an asset whose name is *environment* which cont
    * - environment
      - temperature
      - 1.8
-     - 32
+     - 32.0
    * - environment
      - humidity
      - 0.1
-     - 0
+     - 0.0
 
 If instead we had multiple assets that contain *temperature* and *humidity* we can accomplish the same transformation on all these assets, whilst not affecting any other datapoints, by changing the *asset* regular expression to something that matches more asset names;
 
@@ -148,11 +148,11 @@ If instead we had multiple assets that contain *temperature* and *humidity* we c
    * - .*
      - temperature
      - 1.8
-     - 32
+     - 32.0
    * - .*
      - humidity
      - 0.1
-     - 0
+     - 0.0
 
 List Interactions
 ~~~~~~~~~~~~~~~~~

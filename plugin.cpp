@@ -26,8 +26,8 @@
 		    { \
 			"asset" : ".*", \
 			"datapoint" : ".*",  \
-			"scale" : 1.0, \
-			"offset" : 0.0  \
+			"scale" : "1.0", \
+			"offset" : "0.0"  \
 		    } \
 		] })
 
@@ -52,27 +52,31 @@
 			"listName" : "factors", \
 			"properties" : { \
 				"asset" : { \
-					"description" : "Asset name to match", \
+				        "displayName" : "Asset Name", \
+					"description" : "Asset name to match, this may be a literal name or a regular expression", \
 					"type" : "string", \
 					"default" : ".*", \
 					"order" : "1" \
 				}, \
 				"datapoint" : { \
-					"description" : "Datapoint name to match", \
+				        "displayName" : "Datapoint", \
+					"description" : "Datapoint name to match, this may be a literal name or a regular expression", \
 					"type" : "string", \
 					"default" : ".*", \
 					"order" : "2" \
 				}, \
 				"scale" : { \
-					"description" : "Scale factor to apply", \
+				        "displayName" : "Scale Factor", \
+					"description" : "Scale factor to use as a multiplier", \
 					"type" : "float", \
 					"default" : "1.0", \
 					"order" : "3" \
 				}, \
 				"offset" : { \
-					"description" : "Offset to apply", \
+				        "displayName" : "Offset", \
+					"description" : "Offset to add to the value", \
 					"type" : "float", \
-					"default" : "0", \
+					"default" : "0.0", \
 					"order" : "4" \
 				} \
 			}, \
