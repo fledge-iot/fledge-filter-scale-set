@@ -42,18 +42,18 @@ Scale set filters are added in the same way as any other filters.
   - A list that defines a set of factors and offsets to apply particular assets and datapoints within these assets. A regular expression that is matched against the asset name and another that matches the data point name within the asset to determine if a particular scale factor and offset is applied to the datapoint value.
 
     .. list-table::
-   :header-rows: 1
+       :header-rows: 1
 
-   * - Name
-     - Description
-   * - asset
-     - A regular expression to match against the asset name. The scale factor is only applied to assets whose name matches this regular expression.
-   * - datapoint
-     - A regular expression to match against the data point name within a matching asset. The scale factor is only applied to assets whose name matches this regular expression.
-   * - scale
-     - The scale factor to apply to the numeric data.
-   * - offset
-     - The offset to add to the matching numeric data.
+       * - Name
+         - Description
+       * - asset
+         - A regular expression to match against the asset name. The scale factor is only applied to assets whose name matches this regular expression.
+       * - datapoint
+         - A regular expression to match against the data point name within a matching asset. The scale factor is only applied to assets whose name matches this regular expression.
+       * - scale
+         - The scale factor to apply to the numeric data.
+       * - offset
+         - The offset to add to the matching numeric data.
 
   - Click on *Done* to activate your plugin
 
