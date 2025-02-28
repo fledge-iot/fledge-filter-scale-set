@@ -46,13 +46,13 @@ Scale set filters are added in the same way as any other filters.
 
        * - Name
          - Description
-       * - asset
+       * - Asset Name
          - A regular expression to match against the asset name. The scale factor is only applied to assets whose name matches this regular expression.
-       * - datapoint
+       * - Datapoint
          - A regular expression to match against the data point name within a matching asset. The scale factor is only applied to assets whose name matches this regular expression.
-       * - scale
+       * - Scale Factor
          - The scale factor to apply to the numeric data.
-       * - offset
+       * - Offset
          - The offset to add to the matching numeric data.
 
   - Click on *Done* to activate your plugin
