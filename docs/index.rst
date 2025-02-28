@@ -103,13 +103,13 @@ The JSON file format uses these same names as the keys in each of the list item 
         "asset": ".*",
         "datapoint": "temperature",
         "scale": "1.8",
-        "offset": "32"
+        "offset": "32.0"
       },
       {
         "asset": ".*",
         "datapoint": "humidity",
         "scale": "0.1",
-        "offset": "0"
+        "offset": "0.0"
       }
     ]
 
