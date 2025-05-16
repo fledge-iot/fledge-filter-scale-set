@@ -105,18 +105,30 @@ Document	doc;
 						asset = (*it)["asset"].GetString();
 					if (it->HasMember("datapoint"))
 						datapoint = (*it)["datapoint"].GetString();
-					if (it->HasMember("scale") && (*it)["scale"].IsFloat())
-						scale = (*it)["scale"].GetFloat();
-					else if (it->HasMember("scale") && (*it)["scale"].IsInt())
-						scale = (*it)["scale"].GetInt();
-					else if (it->HasMember("scale"))
-						Logger::getLogger()->error("Scale property for asset %s, %s shoud be a numeric value", asset.c_str(), datapoint.c_str());
-					if (it->HasMember("offset") && (*it)["offset"].IsFloat())
-						offset = (*it)["offset"].GetFloat();
-					else if (it->HasMember("offset") && (*it)["offset"].IsInt())
-						offset = (*it)["offset"].GetInt();
-					else if (it->HasMember("scale"))
-						Logger::getLogger()->error("Offset property for asset %s, %s shoud be a numeric value", asset.c_str(), datapoint.c_str());
+
+					if (it->HasMember("scale"))
+					{
+						try
+						{
+							scale = std::stod((*it)["scale"].GetString());
+						}
+						catch(const std::invalid_argument& e)
+						{
+							Logger::getLogger()->error("Scale property for asset %s, %s should be a numeric value", asset.c_str(), datapoint.c_str());
+						}
+					}
+					if (it->HasMember("offset"))
+					{
+						try
+						{
+							offset = std::stod((*it)["offset"].GetString());
+						}
+						catch(const std::invalid_argument& e)
+						{
+							Logger::getLogger()->error("Offset property for asset %s, %s should be a numeric value", asset.c_str(), datapoint.c_str());
+						}
+					}
+
 					m_scaleSet.push_back(new ScaleSet(asset, datapoint, scale, offset));
 				}
 			}
