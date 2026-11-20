@@ -141,7 +141,8 @@ Document	doc;
  */
 ScaleSetFilter::ScaleSet::ScaleSet(const string& asset, const string& datapoint,
 				double scale, double offset) : m_asset(asset), m_datapoint(datapoint),
-							m_scale(scale), m_offset(offset)
+							m_scale(scale), m_offset(offset),
+							m_asset_re(NULL), m_datapoint_re(NULL)
 {
 	m_asset_re = new regex(asset);
 	if (! m_datapoint.empty())
@@ -154,8 +155,7 @@ ScaleSetFilter::ScaleSet::ScaleSet(const string& asset, const string& datapoint,
 ScaleSetFilter::ScaleSet::~ScaleSet()
 {
 	delete m_asset_re;
-	if (! m_datapoint.empty())
-		delete m_datapoint_re;
+	delete m_datapoint_re;
 }
 
 /**
@@ -172,7 +172,7 @@ void ScaleSetFilter::ScaleSet::apply(const Reading *reading) const
 	const vector<Datapoint *>& dataPoints = reading->getReadingData();
 	for (vector<Datapoint *>::const_iterator it = dataPoints.begin(); it != dataPoints.end(); ++it)
 	{
-			if (m_datapoint.empty() == false && regex_match((*it)->getName(), *m_datapoint_re) == false)
+			if (m_datapoint_re && regex_match((*it)->getName(), *m_datapoint_re) == false)
 				continue;
 			DatapointValue& value = (*it)->getData();
 

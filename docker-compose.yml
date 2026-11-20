@@ -1,0 +1,16 @@
+# Local test environment for the scale-set filter: Fledge 3.1 with the plugin
+# from the working tree, built under AddressSanitizer.
+#
+#   docker compose up -d --build                     # first build compiles Fledge core: slow
+#   docker compose exec fledge python3 /test/test.py # restart test; non-zero exit on failure
+#
+# Fledge API on host port 18081 (override with FLEDGE_PORT).
+
+services:
+  fledge:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: scale-set-test
+    ports:
+      - "${FLEDGE_PORT:-18081}:8081"

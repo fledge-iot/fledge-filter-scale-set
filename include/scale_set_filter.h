@@ -38,8 +38,8 @@ class ScaleSetFilter : public FledgeFilter {
 				~ScaleSet();
 				void	apply(const Reading *reading) const;
 			private:
-				const std::string&	m_asset;
-				const std::string&	m_datapoint;
+				std::string		m_asset;
+				std::string		m_datapoint;
 				double			m_scale;
 				double			m_offset;
 				std::regex		*m_asset_re;
